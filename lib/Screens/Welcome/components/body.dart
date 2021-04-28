@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:masterpass/Screens/Login/login_screen.dart';
-// import 'package:flutter_svg/flutter_svg.dart';
 import 'package:masterpass/Screens/Welcome/components/rounded_button.dart';
 import 'package:masterpass/constants.dart';
 
