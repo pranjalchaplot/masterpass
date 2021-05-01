@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:masterpass/Screens/Login/components/text_field_container.dart';
+import 'package:masterpass/compnents/text_field_container.dart';
 
-import '../../../constants.dart';
+import '../constants.dart';
 
 class RoundedPasswordField extends StatefulWidget {
   final hintText;
-  final IconData icon;
   final ValueChanged<String> onChanged;
 
   const RoundedPasswordField({
     Key key,
     @required this.hintText,
     @required this.onChanged,
-    this.icon = Icons.vpn_key_outlined,
   }) : super(key: key);
 
   @override
@@ -21,7 +19,7 @@ class RoundedPasswordField extends StatefulWidget {
 
 class _RoundedPasswordFieldState extends State<RoundedPasswordField> {
   bool _obscureText = true;
-  IconData suffixIcon = Icons.visibility;
+  IconData suffixIcon = Icons.visibility, passIcon = Icons.lock_outline;
   Color eyeColor = kPrimaryColor, keyColor = kPrimaryColor;
 
   void _toggle() {
@@ -32,6 +30,8 @@ class _RoundedPasswordFieldState extends State<RoundedPasswordField> {
           : Icons.visibility;
       eyeColor = eyeColor == kPrimaryColor ? Colors.green : kPrimaryColor;
       keyColor = keyColor == kPrimaryColor ? Colors.green : kPrimaryColor;
+      passIcon =
+          passIcon == Icons.lock_outline ? Icons.lock_open : Icons.lock_outline;
     });
   }
 
@@ -43,7 +43,7 @@ class _RoundedPasswordFieldState extends State<RoundedPasswordField> {
         onChanged: widget.onChanged,
         decoration: InputDecoration(
           icon: Icon(
-            widget.icon,
+            passIcon,
             color: keyColor,
           ),
           suffixIcon: IconButton(

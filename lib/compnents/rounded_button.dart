@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../constants.dart';
+import '../constants.dart';
 
 class RoundedButton extends StatelessWidget {
   final String text;
@@ -23,7 +23,6 @@ class RoundedButton extends StatelessWidget {
       child: ClipRRect(
         borderRadius: BorderRadius.circular(49),
         child: Container(
-          // padding: EdgeInsets.symmetric(vertical: 4),
           alignment: Alignment.center,
           color: color,
           child: TextButton(
