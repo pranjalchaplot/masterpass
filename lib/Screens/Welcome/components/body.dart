@@ -1,6 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:masterpass/Screens/Login/login_screen.dart';
-import 'package:masterpass/Screens/Welcome/components/rounded_button.dart';
+import 'package:masterpass/Screens/Signup/signup_screen.dart';
+import 'package:masterpass/compnents/rounded_button.dart';
 import 'package:masterpass/constants.dart';
 
 import 'background.dart';
@@ -31,19 +33,26 @@ class Body extends StatelessWidget {
             ),
             SizedBox(height: size.height * 0.02),
             RoundedButton(
-              text: "LOGIN",
+              text: "Login",
               press: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) {
+                  CupertinoPageRoute(builder: (context) {
                     return LoginScreen();
                   }),
                 );
               },
             ),
             RoundedButton(
-              text: "SIGN UP",
-              press: () {},
+              text: "Sign Up",
+              press: () {
+                Navigator.push(
+                  context,
+                  CupertinoPageRoute(builder: (context) {
+                    return SignUpScreen();
+                  }),
+                );
+              },
               color: kPrimaryLightColor,
               textColor: Colors.black,
             )
