@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:masterpass/Screens/Login/login_screen.dart';
 import 'package:masterpass/Screens/Signup/components/or_divider.dart';
-import 'package:masterpass/compnents/already_have_an_account.dart';
-import 'package:masterpass/compnents/rounded_field_input.dart';
-import 'package:masterpass/compnents/rounded_password_field.dart';
-import 'package:masterpass/compnents/rounded_button.dart';
+import 'package:masterpass/components/already_have_an_account.dart';
+import 'package:masterpass/components/rounded_field_input.dart';
+import 'package:masterpass/components/rounded_password_field.dart';
+import 'package:masterpass/components/rounded_button.dart';
 import 'background.dart';
 import 'icon_tray.dart';
 

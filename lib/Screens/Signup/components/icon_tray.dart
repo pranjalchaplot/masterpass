@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:masterpass/compnents/social_icon.dart';
+import 'package:masterpass/components/social_icon.dart';
 
 class IconTray extends StatelessWidget {
   const IconTray({
