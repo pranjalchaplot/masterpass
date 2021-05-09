@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_icons/flutter_icons.dart';
 import 'package:masterpass/Screens/Passwords/components/website_icon.dart';
 import 'package:masterpass/constants.dart';
 // import 'package:masterpass/constants.dart';
@@ -21,6 +22,7 @@ class PasswordTile extends StatelessWidget {
           style: TextStyle(
             fontFamily: "TypeFace",
             fontWeight: FontWeight.bold,
+            fontSize: size.height * 0.025,
           ),
         ),
         subtitle: Text(
@@ -29,42 +31,37 @@ class PasswordTile extends StatelessWidget {
             fontFamily: "TypeFace",
             fontWeight: FontWeight.bold,
             color: Colors.black38,
-            fontSize: size.height * 0.016,
+            fontSize: size.height * 0.018,
           ),
         ),
-        // trailing: IconButton(
-        //   icon: Icon(
-        //     Icons.copy_outlined,
-        //     color: kPrimaryColor,
-        //   ),
-        //   onPressed: () {
-        //     DropdownMenu();
-        //   },
-        // ),
-        trailing: PopupMenuButton<String>(
-          icon: Icon(
-            Icons.content_copy_outlined,
+        trailing: Container(
+          // margin: EdgeInsets.only(right: 4),
+          child: PopupMenuButton<String>(
+            icon: Icon(
+              Feather.copy,
+              color: kPrimaryColor,
+              size: size.height * 0.030,
+            ),
+            onSelected: choiceAction,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
             color: kPrimaryColor,
-          ),
-          onSelected: choiceAction,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10),
-          ),
-          color: kPrimaryColor,
-          itemBuilder: (BuildContext context) {
-            return Constants.choices.map((String choice) {
-              return PopupMenuItem<String>(
-                value: choice,
-                child: Text(
-                  choice,
-                  style: TextStyle(
-                    fontFamily: "SansSerif",
-                    color: kPrimaryLightColor,
+            itemBuilder: (BuildContext context) {
+              return Constants.choices.map((String choice) {
+                return PopupMenuItem<String>(
+                  value: choice,
+                  child: Text(
+                    choice,
+                    style: TextStyle(
+                      fontFamily: "SansSerif",
+                      color: kPrimaryLightColor,
+                    ),
                   ),
-                ),
-              );
-            }).toList();
-          },
+                );
+              }).toList();
+            },
+          ),
         ),
       ),
     );
