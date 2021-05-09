@@ -33,7 +33,7 @@ class PasswordAppBar extends StatelessWidget {
           margin: EdgeInsets.only(top: 15, right: 20),
           child: IconButton(
             icon: Icon(
-              Icons.add,
+              Icons.search,
               color: kPrimaryColor,
               size: size.width * 0.07,
             ),
