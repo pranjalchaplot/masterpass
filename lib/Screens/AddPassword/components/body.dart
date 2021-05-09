@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:masterpass/Screens/AddPassword/components/add_password_field.dart';
 import 'package:masterpass/Screens/AddPassword/components/background.dart';
 import 'package:masterpass/Services/crud.dart';
 import 'package:masterpass/components/rounded_button.dart';
 import 'add_password_text_field.dart';
+import 'package:regexpattern/regexpattern.dart';
 
 class Body extends StatefulWidget {
   @override
@@ -14,16 +16,15 @@ class _BodyState extends State<Body> {
   CrudMethods crudMethods = new CrudMethods();
 
   final GlobalKey<FormState> _formKey = new GlobalKey<FormState>();
+  final TextEditingController _textEditingController =
+      new TextEditingController();
 
   Widget _buildUsername() {
     return AddPasswordTextField(
       labelText: 'Username',
       validator: (String val) {
         if (val.isEmpty) return 'Username Is Required';
-        var usernamePattern = r'/^[a-zA-Z0-9._]+$/';
-
-        if (!RegExp(usernamePattern).hasMatch(val))
-          return 'Please Enter a valid Username';
+        if (!val.isUsername()) return "Username Must Contain 3 Characters";
         return null;
       },
       onSaved: (String val) {
@@ -37,11 +38,7 @@ class _BodyState extends State<Body> {
       labelText: 'Url',
       validator: (String val) {
         if (val.isEmpty) return 'Url Is Required';
-        var urlPattern =
-            r'^((?:.|\n)*?)((http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)([-A-Z0-9.]+)(/[-A-Z0-9+&@#/%=~_|!:,.;]*)?(\?[A-Z0-9+&@#/%=~_|!:‌​,.;]*)?)';
-
-        if (!RegExp(urlPattern).hasMatch(val))
-          return 'Please Enter a valid Url';
+        if (!val.isUrl()) return "Invalid URL";
         return null;
       },
       onSaved: (String val) {
@@ -51,14 +48,12 @@ class _BodyState extends State<Body> {
   }
 
   Widget _buildPassword() {
-    return AddPasswordTextField(
+    return AddPasswordField(
+      controller: _textEditingController,
       labelText: 'Password',
       validator: (String val) {
         if (val.isEmpty) return 'Passwrord Is Required';
-        var usernamePattern = r'/^[a-zA-Z0-9._]+$/';
-
-        if (!RegExp(usernamePattern).hasMatch(val))
-          return 'Please Enter a valid Password';
+        if (!val.isPasswordEasy()) return "Must contain atleast 8 characters";
         return null;
       },
       onSaved: (String val) {
