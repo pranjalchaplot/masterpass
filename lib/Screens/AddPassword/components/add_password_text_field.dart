@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:masterpass/Screens/AddPassword/components/add_password_text_container.dart';
-import '../../../constants.dart';
+import '../../../components/constants.dart';
 
 class AddPasswordTextField extends StatelessWidget {
   final labelText;

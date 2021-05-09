@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:masterpass/Screens/Passwords/components/website_icon.dart';
-import 'package:masterpass/constants.dart';
+import 'package:masterpass/components/constants.dart';
 // import 'package:masterpass/constants.dart';
 
 class PasswordTile extends StatelessWidget {

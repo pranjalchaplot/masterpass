@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:masterpass/Screens/AddPassword/components/body.dart';
 
-import '../../constants.dart';
+import '../../components/constants.dart';
 
 class AddPassword extends StatefulWidget {
   @override

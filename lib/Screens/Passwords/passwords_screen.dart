@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:masterpass/Screens/AddPassword/add_password_screen.dart';
-import 'package:masterpass/constants.dart';
+import 'package:masterpass/components/constants.dart';
 import 'components/body.dart';
 // import 'components/bottom_search_bar.dart';
 import 'components/password_app_bar.dart';

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import '../../../constants.dart';
+import '../../../components/constants.dart';
 
 class WebsiteIcon extends StatelessWidget {
   const WebsiteIcon({

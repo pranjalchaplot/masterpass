@@ -5,7 +5,7 @@ import 'package:masterpass/Screens/Passwords/passwords_screen.dart';
 import 'package:masterpass/components/rounded_field_input.dart';
 import 'package:masterpass/components/rounded_password_field.dart';
 import 'package:masterpass/Screens/Signup/signup_screen.dart';
-import 'package:masterpass/constants.dart';
+import 'package:masterpass/components/constants.dart';
 import 'background.dart';
 import 'login_button.dart';
 

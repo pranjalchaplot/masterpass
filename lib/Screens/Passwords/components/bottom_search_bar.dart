@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../constants.dart';
+import '../../../components/constants.dart';
 
 class BottomSearchBar extends StatefulWidget {
   const BottomSearchBar({

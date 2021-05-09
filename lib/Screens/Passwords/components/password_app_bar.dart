@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:masterpass/Screens/AddPassword/add_password_screen.dart';
-import '../../../constants.dart';
+import '../../../components/constants.dart';
 
 class PasswordAppBar extends StatelessWidget {
   const PasswordAppBar({

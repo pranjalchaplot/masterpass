@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:masterpass/Screens/Welcome/welcome_screen.dart';
-import 'package:masterpass/constants.dart';
+import 'package:masterpass/components/constants.dart';
 
 void main() {
   runApp(MyApp());

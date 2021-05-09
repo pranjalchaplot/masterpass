@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:masterpass/Screens/Login/login_screen.dart';
 import 'package:masterpass/Screens/Signup/signup_screen.dart';
 import 'package:masterpass/components/rounded_button.dart';
-import 'package:masterpass/constants.dart';
+import 'package:masterpass/components/constants.dart';
 
 import 'background.dart';
 
