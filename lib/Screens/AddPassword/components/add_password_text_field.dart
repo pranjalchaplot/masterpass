@@ -16,18 +16,22 @@ class AddPasswordTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return AddPasswordTextContainer(
       child: TextFormField(
-        decoration: InputDecoration(
-          labelText: labelText,
-          labelStyle: TextStyle(
-            color: kPrimaryColor,
-            fontFamily: "SansSerif",
-            fontWeight: FontWeight.bold,
+          decoration: InputDecoration(
+            labelText: labelText,
+            labelStyle: TextStyle(
+              color: kPrimaryColor,
+              fontFamily: "SansSerif",
+              fontWeight: FontWeight.bold,
+            ),
+            border: InputBorder.none,
           ),
-          border: InputBorder.none,
-        ),
-        validator: validator,
-        onSaved: onSaved,
-      ),
+          validator: validator,
+          onSaved: onSaved,
+          style: TextStyle(
+            fontFamily: "TypeSerif",
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
+          )),
     );
   }
 }
