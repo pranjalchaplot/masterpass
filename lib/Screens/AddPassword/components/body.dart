@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:masterpass/Screens/AddPassword/components/add_password_field.dart';
 import 'package:masterpass/Screens/AddPassword/components/background.dart';
@@ -13,6 +14,7 @@ class Body extends StatefulWidget {
 
 class _BodyState extends State<Body> {
   String _url, _userName, _password;
+  bool _isLoading = false;
   CrudMethods crudMethods = new CrudMethods();
 
   final GlobalKey<FormState> _formKey = new GlobalKey<FormState>();
@@ -62,37 +64,75 @@ class _BodyState extends State<Body> {
     );
   }
 
+  uploadPassword() {
+    setState(() {
+      _isLoading = true;
+    });
+
+    // Reference firebaseStorageRef =
+    //     FirebaseStorage.instance.ref().child("websiteIcon").child("$uri.jpg");
+    print("hello");
+    Map<String, String> passMap = {
+      "url": _url,
+      "username": _userName,
+      "password": _password,
+    };
+
+    crudMethods.addData(passMap).then((value) {
+      print("yeah");
+      Navigator.pop(context);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return Background(
-      child: SingleChildScrollView(
-        child: Container(
-          margin: EdgeInsets.all(24),
-          child: Form(
-            key: _formKey,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                _buildURL(),
-                _buildUsername(),
-                _buildPassword(),
-                SizedBox(height: size.height * 0.08),
-                RoundedButton(
-                  text: 'Submit',
-                  press: () {
-                    if (!_formKey.currentState.validate()) return;
-                    _formKey.currentState.save();
-                    print(_url);
-                    print(_userName);
-                    print(_password);
-                  },
-                )
-              ],
+    return FutureBuilder(
+      future: Firebase.initializeApp(),
+      builder: (context, snapshot) {
+        if (snapshot.hasError) {
+          //TODO
+          print("need to add SomethingWentWrong()");
+        }
+        if (snapshot.hasData) {
+          return Background(
+            child: SingleChildScrollView(
+              child: _isLoading
+                  ? Container(
+                      alignment: Alignment.center,
+                      child: CircularProgressIndicator(),
+                    )
+                  : Container(
+                      margin: EdgeInsets.all(24),
+                      child: Form(
+                        key: _formKey,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            _buildURL(),
+                            _buildUsername(),
+                            _buildPassword(),
+                            SizedBox(height: size.height * 0.08),
+                            RoundedButton(
+                              text: 'Submit',
+                              press: () {
+                                if (!_formKey.currentState.validate()) return;
+                                _formKey.currentState.save();
+                                print(_url);
+                                print(_userName);
+                                print(_password);
+                                uploadPassword();
+                              },
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
             ),
-          ),
-        ),
-      ),
+          );
+        }
+        return CircularProgressIndicator();
+      },
     );
   }
 }
