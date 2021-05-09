@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import '../../../components/constants.dart';
 
 class WebsiteIcon extends StatelessWidget {
@@ -19,8 +18,8 @@ class WebsiteIcon extends StatelessWidget {
         ),
         borderRadius: BorderRadius.circular(15),
       ),
-      child: SvgPicture.asset(
-        "assets/icons/facebook.svg",
+      child: Image.asset(
+        "assets/images/web-icon-0.jpg",
         height: 35,
         width: 35,
         color: kPrimaryColor,

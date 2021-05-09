@@ -6,8 +6,11 @@ import 'package:masterpass/components/constants.dart';
 // import 'package:masterpass/constants.dart';
 
 class PasswordTile extends StatelessWidget {
+  final website, username;
   const PasswordTile({
     Key key,
+    @required this.website,
+    @required this.username,
   }) : super(key: key);
 
   @override
@@ -18,7 +21,7 @@ class PasswordTile extends StatelessWidget {
       child: ListTile(
         leading: WebsiteIcon(),
         title: Text(
-          "Facebook",
+          website,
           style: TextStyle(
             fontFamily: "TypeFace",
             fontWeight: FontWeight.bold,
@@ -26,7 +29,7 @@ class PasswordTile extends StatelessWidget {
           ),
         ),
         subtitle: Text(
-          "pranjalchaplot@gmail.com",
+          username,
           style: TextStyle(
             fontFamily: "TypeFace",
             fontWeight: FontWeight.bold,

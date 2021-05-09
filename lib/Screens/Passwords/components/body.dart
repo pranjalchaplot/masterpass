@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:masterpass/Screens/Passwords/components/character_list.dart';
+import 'package:masterpass/Screens/Passwords/components/password_tile.dart';
 
 class Body extends StatelessWidget {
   const Body({
@@ -10,14 +10,17 @@ class Body extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView(
       children: [
-        CharacterList(
-          letter: "P",
+        PasswordTile(
+          username: "pranjalchaplot@gmail.com",
+          website: "Instagram",
         ),
-        CharacterList(
-          letter: "R",
+        PasswordTile(
+          username: "pranjalchaplot@gmail.com",
+          website: "Facebook",
         ),
-        CharacterList(
-          letter: "A",
+        PasswordTile(
+          username: "pranjalchaplot@gmail.com",
+          website: "Twitter",
         ),
       ],
     );
