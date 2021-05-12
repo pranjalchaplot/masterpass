@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:masterpass/Screens/Passwords/components/password_tile.dart';
+import 'package:masterpass/Screens/Passwords/components/password_list.dart';
 import 'package:masterpass/Services/crud.dart';
 
 class Body extends StatefulWidget {
@@ -14,33 +14,19 @@ class Body extends StatefulWidget {
 
 class _BodyState extends State<Body> {
   CrudMethods crudMethods = new CrudMethods();
-  QuerySnapshot passwordsSnapshot;
+
+  QuerySnapshot passSnapshot;
 
   @override
   void initState() {
     super.initState();
     crudMethods.getData().then((result) {
-      passwordsSnapshot = result;
+      passSnapshot = result;
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: [
-        PasswordTile(
-          username: "pranjalchaplot@gmail.com",
-          website: "Instagram",
-        ),
-        PasswordTile(
-          username: "pranjalchaplot@gmail.com",
-          website: "Facebook",
-        ),
-        PasswordTile(
-          username: "pranjalchaplot@gmail.com",
-          website: "Twitter",
-        ),
-      ],
-    );
+    return PasswordList(passSnapshot: passSnapshot);
   }
 }
