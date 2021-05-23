@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:masterpass/Screens/Passwords/passwords_screen.dart';
+import 'package:masterpass/components/already_have_an_account.dart';
 import 'package:masterpass/components/rounded_field_input.dart';
 import 'package:masterpass/components/rounded_password_field.dart';
 import 'package:masterpass/Screens/Signup/signup_screen.dart';
@@ -54,34 +55,19 @@ class Body extends StatelessWidget {
               },
               icon: Icons.verified_user,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  "Don't have an Account? ",
-                  style: TextStyle(
-                    color: kPrimaryColor,
+            AlreadyHaveAnAccountCheck(
+              login: false,
+              press: () {
+                Navigator.push(
+                  context,
+                  CupertinoPageRoute(
+                    builder: (context) {
+                      return SignUpScreen();
+                    },
                   ),
-                ),
-                GestureDetector(
-                  child: Text(
-                    "Sign Up",
-                    style: TextStyle(
-                      color: kPrimaryColor,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      CupertinoPageRoute(builder: (context) {
-                        return SignUpScreen();
-                      }),
-                    );
-                  },
-                )
-              ],
-            )
+                );
+              },
+            ),
           ],
         ),
       ),
