@@ -6,11 +6,12 @@ import 'package:masterpass/components/constants.dart';
 // import 'package:masterpass/constants.dart';
 
 class PasswordTile extends StatelessWidget {
-  final website, username;
+  final website, username, pass;
   const PasswordTile({
     Key key,
     @required this.website,
     @required this.username,
+    @required this.pass,
   }) : super(key: key);
 
   @override
@@ -45,7 +46,13 @@ class PasswordTile extends StatelessWidget {
               color: kPrimaryColor,
               size: size.height * 0.030,
             ),
-            onSelected: choiceAction,
+            onSelected: (String choice) {
+              Clipboard.setData(
+                new ClipboardData(
+                  text: choice == 'Copy Username' ? username : pass,
+                ),
+              );
+            },
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10),
             ),
@@ -81,10 +88,4 @@ class Constants {
     SecondItem,
     // ThirdItem,
   ];
-}
-
-void choiceAction(String choice) {
-  Clipboard.setData(
-    new ClipboardData(text: choice),
-  );
 }
