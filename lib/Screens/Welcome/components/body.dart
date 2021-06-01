@@ -35,7 +35,7 @@ class Body extends StatelessWidget {
             RoundedButton(
               text: "Login",
               press: () {
-                Navigator.push(
+                Navigator.pushReplacement(
                   context,
                   CupertinoPageRoute(builder: (context) {
                     return LoginScreen();
@@ -46,7 +46,7 @@ class Body extends StatelessWidget {
             RoundedButton(
               text: "Sign Up",
               press: () {
-                Navigator.push(
+                Navigator.pushReplacement(
                   context,
                   CupertinoPageRoute(builder: (context) {
                     return SignUpScreen();
