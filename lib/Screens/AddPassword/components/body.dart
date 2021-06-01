@@ -8,6 +8,11 @@ import 'add_password_text_field.dart';
 import 'package:regexpattern/regexpattern.dart';
 
 class Body extends StatefulWidget {
+  final userId;
+  const Body({
+    Key key,
+    @required this.userId,
+  }) : super(key: key);
   @override
   _BodyState createState() => _BodyState();
 }
@@ -78,8 +83,7 @@ class _BodyState extends State<Body> {
       "password": _password,
     };
 
-    crudMethods.addData(passMap).then((value) {
-      print("yeah");
+    crudMethods.addData(widget.userId, passMap).then((value) {
       Navigator.pop(context);
     });
   }
@@ -91,7 +95,6 @@ class _BodyState extends State<Body> {
       future: Firebase.initializeApp(),
       builder: (context, snapshot) {
         if (snapshot.hasError) {
-          //TODO
           print("need to add SomethingWentWrong()");
         }
         if (snapshot.hasData) {

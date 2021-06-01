@@ -4,8 +4,10 @@ import 'package:masterpass/Screens/Passwords/components/password_list.dart';
 import 'package:masterpass/Services/crud.dart';
 
 class Body extends StatefulWidget {
+  final userId;
   const Body({
     Key key,
+    @required this.userId,
   }) : super(key: key);
 
   @override
@@ -20,7 +22,7 @@ class _BodyState extends State<Body> {
   @override
   void initState() {
     super.initState();
-    crudMethods.getData().then((result) {
+    crudMethods.getData(widget.userId).then((result) {
       setState(() {
         passStream = result;
       });

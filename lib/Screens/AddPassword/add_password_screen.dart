@@ -4,6 +4,11 @@ import 'package:masterpass/Screens/AddPassword/components/body.dart';
 import '../../components/constants.dart';
 
 class AddPassword extends StatefulWidget {
+  final userId;
+  const AddPassword({
+    Key key,
+    @required this.userId,
+  }) : super(key: key);
   @override
   _AddPasswordState createState() => _AddPasswordState();
 }
@@ -30,7 +35,9 @@ class _AddPasswordState extends State<AddPassword> {
         backgroundColor: Colors.transparent,
         elevation: 0.0,
       ),
-      body: Body(),
+      body: Body(
+        userId: widget.userId,
+      ),
     );
   }
 }

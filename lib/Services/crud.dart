@@ -1,8 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class CrudMethods {
-  Future<void> addData(passwordData) async {
+  Future<void> addData(userId, passwordData) async {
     FirebaseFirestore.instance
+        .collection("users")
+        .doc(userId)
         .collection("passwords")
         .add(passwordData)
         .catchError((e) {
@@ -10,7 +12,12 @@ class CrudMethods {
     });
   }
 
-  getData() async {
-    return await FirebaseFirestore.instance.collection("passwords").get();
+  Future getData(userId) async {
+    // ignore: await_only_futures
+    return await FirebaseFirestore.instance
+        .collection("users")
+        .doc(userId)
+        .collection("passwords")
+        .snapshots();
   }
 }
