@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:masterpass/Screens/AddPassword/add_password_screen.dart';
+import 'package:masterpass/Screens/Welcome/welcome_screen.dart';
+import 'package:masterpass/components/provider/google_sign_in.dart';
+import 'package:provider/provider.dart';
 import '../../../components/constants.dart';
 
 class PasswordAppBar extends StatelessWidget {
@@ -15,6 +17,23 @@ class PasswordAppBar extends StatelessWidget {
       automaticallyImplyLeading: false,
       backgroundColor: Colors.transparent,
       elevation: 0.0,
+      leading: Container(
+        margin: EdgeInsets.only(top: 15, left: 20),
+        child: IconButton(
+          icon: Icon(
+            Icons.logout,
+            color: kPrimaryColor,
+          ),
+          onPressed: () {
+            final provider =
+                Provider.of<GoogleSignInProvider>(context, listen: false);
+            provider.logout();
+            Navigator.push(context, CupertinoPageRoute(builder: (context) {
+              return WelcomeScreen();
+            }));
+          },
+        ),
+      ),
       title: Container(
         margin: EdgeInsets.only(top: 20),
         child: Text(
@@ -42,7 +61,7 @@ class PasswordAppBar extends StatelessWidget {
                 context,
                 CupertinoPageRoute(
                   builder: (context) {
-                    return AddPassword();
+                    return Container();
                   },
                 ),
               );
