@@ -1,70 +1,76 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:masterpass/Screens/Login/login_screen.dart';
+import 'package:masterpass/Screens/Login/components/login_button.dart';
 import 'package:masterpass/Screens/Signup/components/or_divider.dart';
+import 'package:masterpass/Screens/Signup/signup_screen.dart';
 import 'package:masterpass/components/already_have_an_account.dart';
 import 'package:masterpass/components/google_button.dart';
-import 'package:masterpass/components/rounded_button.dart';
 import 'package:masterpass/components/rounded_field_input.dart';
 import 'package:masterpass/components/rounded_password_field.dart';
 
-class SignUpWidget extends StatelessWidget {
+class LoginWidget extends StatelessWidget {
+  const LoginWidget({
+    Key key,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return Container(
-      padding: EdgeInsets.only(top: 10),
+    return SingleChildScrollView(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            "Sign Up",
+            "Login",
             style: TextStyle(
               fontFamily: "SansSerif",
-              fontWeight: FontWeight.bold,
             ),
           ),
-          SizedBox(
-            height: size.height * 0.01,
-          ),
+          SizedBox(height: size.height * 0.02),
           SvgPicture.asset(
-            "assets/icons/signup.svg",
-            height: size.height * 0.20,
+            "assets/icons/login.svg",
+            height: size.height * 0.3,
           ),
           RoundedInputField(
-            icon: Icons.email_rounded,
-            hintText: "Your MasterEmail",
-            onChanged: (value) {},
-          ),
-          RoundedInputField(
-            icon: Icons.person_outline,
-            hintText: "Your MasterID",
+            icon: Icons.person_outline_outlined,
+            hintText: "Enter MasterUser",
             onChanged: (value) {},
           ),
           RoundedPasswordField(
-            // icon: Icons.lock,
-            hintText: "Your MasterPass",
+            hintText: "Enter MasterPass",
             onChanged: (value) {},
           ),
-          RoundedButton(
-            text: "Sign Up",
+          LoginButton(
+            text: "Login",
+            // press: () {
+            //   Navigator.pushReplacement(
+            //     context,
+            //     CupertinoPageRoute(builder: (context) {
+            //       return PasswordScreen();
+            //     }),
+            //   );
+            // },
+            icon: Icons.verified_user,
           ),
+          SizedBox(height: size.height * 0.02),
           AlreadyHaveAnAccountCheck(
-            login: false,
+            login: true,
             press: () {
               Navigator.push(
                 context,
                 CupertinoPageRoute(
                   builder: (context) {
-                    return LoginScreen();
+                    return SignUpScreen();
                   },
                 ),
               );
             },
           ),
           OrDivider(),
-          GoogleButton(text: "Sign In with Google"),
+          GoogleButton(
+            text: "Login with Google",
+          ),
         ],
       ),
     );
