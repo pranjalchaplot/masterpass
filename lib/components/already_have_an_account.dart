@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'constants.dart';
+
 class AlreadyHaveAnAccountCheck extends StatelessWidget {
   final bool login;
   final Function press;
@@ -15,9 +17,9 @@ class AlreadyHaveAnAccountCheck extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         Text(
-          login ? "Don’t have an Account ? " : "Already have an Account ? ",
+          login ? "Don’t have an Account? " : "Already have an Account? ",
           style: TextStyle(
-            fontFamily: "TypeFace",
+            fontFamily: "SansSerif",
             color: Colors.black,
           ),
         ),
@@ -26,8 +28,8 @@ class AlreadyHaveAnAccountCheck extends StatelessWidget {
           child: Text(
             login ? "Sign Up" : "Login",
             style: TextStyle(
-              fontFamily: "TypeFace",
-              color: Colors.black,
+              fontFamily: "SansSerif",
+              color: login ? kPrimaryColor : Colors.red,
               fontWeight: FontWeight.bold,
             ),
           ),
