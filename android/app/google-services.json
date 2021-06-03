@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "464971767318-3sa429771853l78pi3d5pm90apjqakb1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.masterpass",
+            "certificate_hash": "9fd9fdb8b66e4dcfbd7f49c90cd2e03778b6aa95"
+          }
+        },
+        {
           "client_id": "464971767318-nr7itbt3dlskl4gggesfpllpbnklcg97.apps.googleusercontent.com",
           "client_type": 3
         }
