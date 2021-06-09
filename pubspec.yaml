@@ -32,7 +32,6 @@ dependencies:
   google_fonts: ^2.0.0
   cloud_firestore: any
   random_string: ^2.1.0
-  firebase_storage: any
   firebase_core: any
   firebase_auth: any
   firebase_auth_web: any
