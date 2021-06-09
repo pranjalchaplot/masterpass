@@ -27,8 +27,10 @@ class Body extends StatelessWidget {
             } else if (snapshot.hasData) {
               final FirebaseAuth _auth = FirebaseAuth.instance;
               final userId = _auth.currentUser.uid;
+              final photoURL = _auth.currentUser.photoURL;
               return PasswordScreen(
                 userId: userId,
+                photoURL: photoURL,
               );
             } else {
               return LoginWidget();

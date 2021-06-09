@@ -6,8 +6,10 @@ import 'package:provider/provider.dart';
 import '../../../components/constants.dart';
 
 class PasswordAppBar extends StatelessWidget {
+  final photoURL;
   const PasswordAppBar({
     Key key,
+    @required this.photoURL,
   }) : super(key: key);
 
   @override
@@ -50,23 +52,37 @@ class PasswordAppBar extends StatelessWidget {
       actions: [
         Container(
           margin: EdgeInsets.only(top: 15, right: 20),
-          child: IconButton(
-            icon: Icon(
-              Icons.search,
-              color: kPrimaryColor,
-              size: size.width * 0.07,
+          child: CircleAvatar(
+            // maxRadius: 25,
+            radius: size.width * 0.05,
+            backgroundImage: NetworkImage(
+              photoURL,
             ),
-            onPressed: () {
-              Navigator.push(
-                context,
-                CupertinoPageRoute(
-                  builder: (context) {
-                    return Container();
-                  },
-                ),
-              );
-            },
           ),
+          // child: ClipRRect(
+          //   borderRadius: BorderRadius.circular(100),
+          //   child: Image.network(
+          //     photoURL,
+          //     width: size.width * 0.07,
+          //   ),
+          // ),
+          // child: IconButton(
+          //   icon: Icon(
+          //     Icons.search,
+          //     color: kPrimaryColor,
+          //     size: size.width * 0.07,
+          //   ),
+          //   onPressed: () {
+          //     Navigator.push(
+          //       context,
+          //       CupertinoPageRoute(
+          //         builder: (context) {
+          //           return Container();
+          //         },
+          //       ),
+          //     );
+          //   },
+          // ),
         )
       ],
     );

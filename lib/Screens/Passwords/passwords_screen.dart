@@ -7,10 +7,11 @@ import 'components/body.dart';
 import 'components/password_app_bar.dart';
 
 class PasswordScreen extends StatefulWidget {
-  final userId;
+  final userId, photoURL;
   const PasswordScreen({
     Key key,
     @required this.userId,
+    @required this.photoURL,
   }) : super(key: key);
 
   @override
@@ -23,7 +24,9 @@ class _PasswordScreenState extends State<PasswordScreen> {
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(100),
-        child: PasswordAppBar(),
+        child: PasswordAppBar(
+          photoURL: widget.photoURL,
+        ),
       ),
       body: Body(userId: widget.userId),
       floatingActionButton: Container(
