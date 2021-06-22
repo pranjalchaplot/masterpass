@@ -35,7 +35,7 @@ class PasswordAppBar extends StatelessWidget {
                   title: Container(
                     margin: EdgeInsets.only(top: 5),
                     child: Text(
-                      'Are You Sure You Want To Logout?',
+                      'You Want to Logout?',
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontFamily: "SansSerif",
