@@ -43,6 +43,9 @@ class PasswordTile extends StatelessWidget {
           children: [
             ClipboardOptions(username: username, pass: pass),
             EditOptions(
+              website: website,
+              username: username,
+              pass: pass,
               docId: docId,
               userId: userId,
             ),

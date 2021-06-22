@@ -1,16 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
-import 'package:masterpass/Screens/EditPassword/edit_password_screen.dart';
+import 'package:masterpass/Screens/UpdatePassword/update_password_screen.dart';
 import 'package:masterpass/Services/crud.dart';
 import 'package:masterpass/components/constants.dart';
 
 class EditOptions extends StatefulWidget {
-  final userId, docId;
+  final website, username, pass, userId, docId;
   const EditOptions({
     Key key,
     @required this.docId,
     @required this.userId,
+    @required this.website,
+    @required this.username,
+    @required this.pass,
   }) : super(key: key);
 
   @override
@@ -36,7 +39,13 @@ class _EditOptionsState extends State<EditOptions> {
               context,
               CupertinoPageRoute(
                 builder: (context) {
-                  return EditPassword();
+                  return UpdatePassword(
+                    website: widget.website,
+                    username: widget.username,
+                    pass: widget.pass,
+                    userId: widget.userId,
+                    docId: widget.docId,
+                  );
                 },
               ),
             );
