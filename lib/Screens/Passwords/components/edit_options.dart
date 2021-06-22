@@ -49,9 +49,57 @@ class _EditOptionsState extends State<EditOptions> {
                 },
               ),
             );
-          } else
-            crudMethods.deleteData(widget.userId, widget.docId);
-          // else if(choice == '')
+          } else {
+            showDialog(
+              context: context,
+              builder: (_) {
+                return AlertDialog(
+                  backgroundColor: Colors.redAccent,
+                  title: Container(
+                    margin: EdgeInsets.only(top: 5),
+                    child: Text(
+                      'Delete This Password?',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontFamily: "SansSerif",
+                        fontSize: 18,
+                        color: kPrimaryLightColor,
+                      ),
+                    ),
+                  ),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  actions: [
+                    TextButton(
+                      onPressed: () {
+                        crudMethods.deleteData(widget.userId, widget.docId);
+                        Navigator.pop(context, false);
+                      }, // passing true
+                      child: Text(
+                        'Yes',
+                        style: TextStyle(
+                          fontFamily: "SansSerif",
+                          color: kPrimaryLightColor,
+                        ),
+                      ),
+                    ),
+                    TextButton(
+                      onPressed: () =>
+                          Navigator.pop(context, false), // passing false
+                      child: Text(
+                        'No',
+                        style: TextStyle(
+                          fontFamily: "SansSerif",
+                          color: kPrimaryLightColor,
+                        ),
+                      ),
+                    ),
+                  ],
+                );
+              },
+            );
+          }
         },
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),
