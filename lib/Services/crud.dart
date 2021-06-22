@@ -1,9 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
+final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+final CollectionReference _mainCollection = _firestore.collection("users");
+
 class CrudMethods {
   Future<void> addData(userId, passwordData) async {
-    FirebaseFirestore.instance
-        .collection("users")
+    await _mainCollection
         .doc(userId)
         .collection("passwords")
         .add(passwordData)
@@ -13,11 +15,34 @@ class CrudMethods {
   }
 
   Future getData(userId) async {
-    // ignore: await_only_futures
-    return await FirebaseFirestore.instance
-        .collection("users")
+    return _mainCollection.doc(userId).collection("passwords").snapshots();
+  }
+
+  Future<void> updateItem(userId, passwordData, docId) async {
+    //TODO
+    //copy below
+    // Map<String, dynamic> data = <String, dynamic>{
+    //   "title": title,
+    //   "description": description,
+    // };
+
+    await _mainCollection
+        .doc(userId)
+        .collection('passwords')
+        .doc(docId)
+        .update(passwordData)
+        .whenComplete(() => print("Note item updated in the database"))
+        .catchError((e) => print(e));
+  }
+
+  Future<void> deleteData(userId, docId) async {
+    await _mainCollection
         .doc(userId)
         .collection("passwords")
-        .snapshots();
+        .doc(docId)
+        .delete()
+        .catchError((e) {
+      print(e);
+    });
   }
 }
