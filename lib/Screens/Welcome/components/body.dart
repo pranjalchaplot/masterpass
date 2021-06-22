@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+// import 'package:masterpass/Screens/Welcome/components/google_welcome.dart';
 import 'package:masterpass/Screens/Login/login_screen.dart';
 import 'package:masterpass/Screens/Signup/signup_screen.dart';
 import 'package:masterpass/components/rounded_button.dart';
@@ -32,6 +33,9 @@ class Body extends StatelessWidget {
               width: size.width * 0.6,
             ),
             SizedBox(height: size.height * 0.02),
+            // GoogleWelcomeButton(
+            //   text: "Enter with Google",
+            // ),
             RoundedButton(
               text: "Login",
               press: () {
