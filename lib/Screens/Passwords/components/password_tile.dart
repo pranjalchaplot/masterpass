@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_icons/flutter_icons.dart';
+import 'package:masterpass/Screens/Passwords/components/clipboard_options.dart';
+import 'package:masterpass/Screens/Passwords/components/edit_options.dart';
 import 'package:masterpass/Screens/Passwords/components/website_icon.dart';
-import 'package:masterpass/components/constants.dart';
-// import 'package:masterpass/constants.dart';
 
 class PasswordTile extends StatelessWidget {
-  final website, username, pass;
+  final website, username, pass, docId, userId;
   const PasswordTile({
     Key key,
     @required this.website,
     @required this.username,
     @required this.pass,
+    @required this.docId,
+    @required this.userId,
   }) : super(key: key);
 
   @override
@@ -38,54 +38,17 @@ class PasswordTile extends StatelessWidget {
             fontSize: size.height * 0.018,
           ),
         ),
-        trailing: Container(
-          // margin: EdgeInsets.only(right: 4),
-          child: PopupMenuButton<String>(
-            icon: Icon(
-              Feather.copy,
-              color: kPrimaryColor,
-              size: size.height * 0.030,
+        trailing: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            ClipboardOptions(username: username, pass: pass),
+            EditOptions(
+              docId: docId,
+              userId: userId,
             ),
-            onSelected: (String choice) {
-              Clipboard.setData(
-                new ClipboardData(
-                  text: choice == 'Copy Username' ? username : pass,
-                ),
-              );
-            },
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10),
-            ),
-            color: kPrimaryColor,
-            itemBuilder: (BuildContext context) {
-              return Constants.choices.map((String choice) {
-                return PopupMenuItem<String>(
-                  value: choice,
-                  child: Text(
-                    choice,
-                    style: TextStyle(
-                      fontFamily: "SansSerif",
-                      color: kPrimaryLightColor,
-                    ),
-                  ),
-                );
-              }).toList();
-            },
-          ),
+          ],
         ),
       ),
     );
   }
-}
-
-class Constants {
-  static const String FirstItem = 'Copy Username';
-  static const String SecondItem = 'Copy Password';
-  // static const String ThirdItem = 'Third Item';
-
-  static const List<String> choices = <String>[
-    FirstItem,
-    SecondItem,
-    // ThirdItem,
-  ];
 }

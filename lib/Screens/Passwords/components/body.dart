@@ -41,6 +41,7 @@ class _BodyState extends State<Body> {
           if (snapshot.connectionState == ConnectionState.done) {
             return PasswordList(
               passStream: passStream,
+              userId: widget.userId,
             );
           }
           return CircularProgressIndicator();

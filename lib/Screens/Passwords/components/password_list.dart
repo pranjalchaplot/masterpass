@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:masterpass/Screens/Passwords/components/edit_options.dart';
+// import 'package:masterpass/Screens/Passwords/components/edit_options.dart';
 import 'package:masterpass/Screens/Passwords/components/empty_screen.dart';
 import 'package:masterpass/Screens/Passwords/components/password_tile.dart';
 import 'package:masterpass/components/build_loading.dart';
 
 class PasswordList extends StatelessWidget {
+  final userId;
   const PasswordList({
     Key key,
     @required this.passStream,
+    @required this.userId,
   }) : super(key: key);
 
   final Stream<Object> passStream;
@@ -35,12 +37,12 @@ class PasswordList extends StatelessWidget {
               physics: NeverScrollableScrollPhysics(),
               shrinkWrap: true,
               itemBuilder: (context, index) {
-                return EditOption(
-                  child: PasswordTile(
-                    username: snapshot.data.docs[index].data()['username'],
-                    website: snapshot.data.docs[index].data()['url'],
-                    pass: snapshot.data.docs[index].data()['password'],
-                  ),
+                return PasswordTile(
+                  username: snapshot.data.docs[index].data()['username'],
+                  website: snapshot.data.docs[index].data()['url'],
+                  pass: snapshot.data.docs[index].data()['password'],
+                  userId: userId,
+                  docId: snapshot.data.docs[index].id,
                 );
               },
             );
