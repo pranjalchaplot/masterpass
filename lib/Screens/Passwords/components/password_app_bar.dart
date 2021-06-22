@@ -27,12 +27,65 @@ class PasswordAppBar extends StatelessWidget {
             color: kPrimaryColor,
           ),
           onPressed: () {
-            final provider =
-                Provider.of<GoogleSignInProvider>(context, listen: false);
-            provider.logout();
-            Navigator.push(context, CupertinoPageRoute(builder: (context) {
-              return WelcomeScreen();
-            }));
+            showDialog(
+              context: context,
+              builder: (_) {
+                return AlertDialog(
+                  backgroundColor: kPrimaryColor,
+                  title: Container(
+                    margin: EdgeInsets.only(top: 5),
+                    child: Text(
+                      'Are You Sure You Want To Logout?',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontFamily: "SansSerif",
+                        fontSize: 18,
+                        color: kPrimaryLightColor,
+                      ),
+                    ),
+                  ),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  actions: [
+                    TextButton(
+                      onPressed: () {
+                        final provider = Provider.of<GoogleSignInProvider>(
+                            context,
+                            listen: false);
+                        provider.logout();
+                        Navigator.push(
+                          context,
+                          CupertinoPageRoute(
+                            builder: (context) {
+                              return WelcomeScreen();
+                            },
+                          ),
+                        );
+                      }, // passing true
+                      child: Text(
+                        'Yes',
+                        style: TextStyle(
+                          fontFamily: "SansSerif",
+                          color: kPrimaryLightColor,
+                        ),
+                      ),
+                    ),
+                    TextButton(
+                      onPressed: () =>
+                          Navigator.pop(context, false), // passing false
+                      child: Text(
+                        'No',
+                        style: TextStyle(
+                          fontFamily: "SansSerif",
+                          color: kPrimaryLightColor,
+                        ),
+                      ),
+                    ),
+                  ],
+                );
+              },
+            );
           },
         ),
       ),
@@ -53,36 +106,11 @@ class PasswordAppBar extends StatelessWidget {
         Container(
           margin: EdgeInsets.only(top: 15, right: 20),
           child: CircleAvatar(
-            // maxRadius: 25,
             radius: size.width * 0.05,
             backgroundImage: NetworkImage(
               photoURL,
             ),
           ),
-          // child: ClipRRect(
-          //   borderRadius: BorderRadius.circular(100),
-          //   child: Image.network(
-          //     photoURL,
-          //     width: size.width * 0.07,
-          //   ),
-          // ),
-          // child: IconButton(
-          //   icon: Icon(
-          //     Icons.search,
-          //     color: kPrimaryColor,
-          //     size: size.width * 0.07,
-          //   ),
-          //   onPressed: () {
-          //     Navigator.push(
-          //       context,
-          //       CupertinoPageRoute(
-          //         builder: (context) {
-          //           return Container();
-          //         },
-          //       ),
-          //     );
-          //   },
-          // ),
         )
       ],
     );
