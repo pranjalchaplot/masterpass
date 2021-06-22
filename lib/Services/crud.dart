@@ -19,13 +19,6 @@ class CrudMethods {
   }
 
   Future<void> updateItem(userId, passwordData, docId) async {
-    //TODO
-    //copy below
-    // Map<String, dynamic> data = <String, dynamic>{
-    //   "title": title,
-    //   "description": description,
-    // };
-
     await _mainCollection
         .doc(userId)
         .collection('passwords')
