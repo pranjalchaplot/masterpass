@@ -95,9 +95,9 @@ flutter:
         - asset: assets/fonts/Nexa_Light.otf
           weight: 700
 
-    - family: Rintix
+    - family: Pranjal
       fonts:
-        - asset: assets/fonts/Rintix.ttf
+        - asset: assets/fonts/Pranjal.ttf
           weight: 700
   #
   # For details regarding fonts from package dependencies,

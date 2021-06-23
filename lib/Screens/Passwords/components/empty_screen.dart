@@ -21,7 +21,7 @@ class EmptyScreen extends StatelessWidget {
             textAlign: TextAlign.center,
             style: TextStyle(
               color: kPrimaryColor,
-              fontFamily: "Rintix",
+              fontFamily: "Pranjal",
               fontWeight: FontWeight.bold,
               fontSize: size.height * 0.023,
             ),
@@ -31,7 +31,7 @@ class EmptyScreen extends StatelessWidget {
             textAlign: TextAlign.center,
             style: TextStyle(
               color: Color(0xB6D8792B),
-              fontFamily: "Rintix",
+              fontFamily: "Pranjal",
               // fontWeight: FontWeight.bold,
               fontSize: size.height * 0.025,
             ),
@@ -41,7 +41,7 @@ class EmptyScreen extends StatelessWidget {
             textAlign: TextAlign.center,
             style: TextStyle(
               color: kPrimaryColor,
-              fontFamily: "Rintix",
+              fontFamily: "Pranjal",
               fontWeight: FontWeight.bold,
               fontSize: size.height * 0.023,
             ),
