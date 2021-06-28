@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:masterpass/components/constants.dart';
 
 class EmptyScreen extends StatelessWidget {
   const EmptyScreen({
@@ -17,33 +16,33 @@ class EmptyScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            "You Have No Passwords Saved",
+            "No Password Saved",
             textAlign: TextAlign.center,
             style: TextStyle(
-              color: kPrimaryColor,
+              color: Color(0xFFDB4D06),
               fontFamily: "Pranjal",
               fontWeight: FontWeight.bold,
-              fontSize: size.height * 0.023,
+              fontSize: size.height * 0.045,
             ),
           ),
           Text(
             "Click On The '+' Button",
             textAlign: TextAlign.center,
             style: TextStyle(
-              color: Color(0xB6D8792B),
+              color: Color(0xFF3232B6),
               fontFamily: "Pranjal",
-              // fontWeight: FontWeight.bold,
-              fontSize: size.height * 0.025,
+              fontWeight: FontWeight.bold,
+              fontSize: size.height * 0.045,
             ),
           ),
           Text(
-            "To Add A Password",
+            "to add a Password",
             textAlign: TextAlign.center,
             style: TextStyle(
-              color: kPrimaryColor,
+              color: Color(0xFF18A70B),
               fontFamily: "Pranjal",
               fontWeight: FontWeight.bold,
-              fontSize: size.height * 0.023,
+              fontSize: size.height * 0.045,
             ),
           )
         ],
