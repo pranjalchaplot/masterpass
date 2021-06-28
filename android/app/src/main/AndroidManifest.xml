@@ -2,8 +2,8 @@
     package="com.example.masterpass">
     <uses-permission android:name="android.permission.INTERNET"/>
    <application
-        android:label="masterpass"
-        android:icon="@mipmap/ic_launcher">
+        android:label="MasterPass"
+        android:icon="@mipmap/mp_launcher">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
